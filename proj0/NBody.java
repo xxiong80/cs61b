@@ -8,8 +8,8 @@ public class NBody{
 
 	public static Planet[] readPlanets(String fName){
 		In in = new In(fName);
-		Planet[] planets = new Planet[5];
 		int numPlanets = in.readInt();
+		Planet[] planets = new Planet[5];
 		double radius = in.readDouble();
 		for(int i = 0; i < numPlanets; i++){
 			double xPos = in.readDouble();
