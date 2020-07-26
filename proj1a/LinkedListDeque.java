@@ -109,7 +109,6 @@ public class LinkedListDeque<T> {
         return helper(p.next, index - 1);
     }
 }
-
 //    public static void main(String[] args) {
 //        LinkedListDeque<String> L = new LinkedListDeque<>();
 //        L.addFirst("Xugang");

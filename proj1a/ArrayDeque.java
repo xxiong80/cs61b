@@ -17,10 +17,10 @@ public class ArrayDeque<T> {
         int len = items.length;
         if ((nextFirst + 1) % len + size < len) {
             System.arraycopy(items, (nextFirst + 1) % len, a, 0, size);
-        }
-        else {
+        } else {
             System.arraycopy(items, (nextFirst + 1) % len, a, 0, len - (nextFirst + 1) % len);
-            System.arraycopy(items, 0, a, len - (nextFirst + 1) % len, size + (nextFirst + 1) % len - len);
+            System.arraycopy(items, 0, a, len - (nextFirst + 1) % len,
+                    size + (nextFirst + 1) % len - len);
         }
         items = a;
         nextFirst = capacity - 1;
@@ -37,8 +37,9 @@ public class ArrayDeque<T> {
             nextLast %= items.length;
         }
         nextFirst--;
-        if (nextFirst < 0)
+        if (nextFirst < 0) {
             nextFirst += items.length;
+        }
         size++;
     }
 
@@ -102,7 +103,7 @@ public class ArrayDeque<T> {
     }
 
     public T get(int i) {
-        return items[(nextFirst + 1 + i) % size];
+        return items[(nextFirst + 1 + i) % items.length];
     }
 
 //    public static void main(String[] args) {
