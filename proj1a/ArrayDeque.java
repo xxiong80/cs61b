@@ -14,11 +14,13 @@ public class ArrayDeque<T> {
 
     private void resize(int capacity) {
         T[] a = (T[]) new Object[capacity];
-        if ((nextFirst + 1) % items.length + size < items.length)
-            System.arraycopy(items, (nextFirst + 1) % items.length, a, 0, size);
+        int len = items.length;
+        if ((nextFirst + 1) % len + size < len) {
+            System.arraycopy(items, (nextFirst + 1) % len, a, 0, size);
+        }
         else {
-            System.arraycopy(items, (nextFirst + 1) % items.length, a, 0, items.length - (nextFirst + 1) % items.length);
-            System.arraycopy(items, 0, a, items.length - (nextFirst + 1) % items.length, size + (nextFirst + 1) % items.length - items.length);
+            System.arraycopy(items, (nextFirst + 1) % len, a, 0, len - (nextFirst + 1) % len);
+            System.arraycopy(items, 0, a, len - (nextFirst + 1) % len, size + (nextFirst + 1) % len - len);
         }
         items = a;
         nextFirst = capacity - 1;
@@ -41,14 +43,15 @@ public class ArrayDeque<T> {
     }
 
     public void addLast(T x) {
-        if (size == items.length){
+        if (size == items.length) {
             resize(items.length * REFACTOR);
         }
         items[nextLast] = x;
-        if (size == 0 && nextFirst == nextLast){
+        if (size == 0 && nextFirst == nextLast) {
             nextFirst--;
-            if (nextFirst < 0)
+            if (nextFirst < 0) {
                 nextFirst += items.length;
+            }
         }
         nextLast++;
         nextLast %= items.length;
@@ -89,8 +92,9 @@ public class ArrayDeque<T> {
             resize(items.length / REFACTOR);
         }
         nextLast--;
-        if (nextLast < 0)
+        if (nextLast < 0) {
             nextLast += items.length;
+        }
         T x = items[nextLast];
         items[nextLast] = null;
         size = size - 1;
