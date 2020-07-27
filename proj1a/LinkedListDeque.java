@@ -78,14 +78,17 @@ public class LinkedListDeque<T> {
     }
 
     public T get(int index) {
-        if (index < 0 || index >= size) {
-            return null;
-        }
         StuffNode p = sentinel;
-        for (int i = 1; i <= index; i++) {
+        int count = 0;
+        while(p.next.item != stuff && p.next != null) {
             p = p.next;
+            if (count == index) {
+                return p.item;
+            } else {
+                count++;
+            }
         }
-        return p.item;
+        return null;
     }
 
     public T getRecursive(int index) {
