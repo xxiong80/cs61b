@@ -35,7 +35,7 @@ public class LinkedListDeque<T> {
     public void addLast(T x) {
         if (size == 0) {
             sentinel.prev = new StuffNode(x, sentinel, sentinel);
-            sentinel.next = sentinel. prev;
+            sentinel.next = sentinel.prev;
             size = 1;
         } else {
             sentinel.prev = new StuffNode(x, sentinel.prev, sentinel);
@@ -85,7 +85,7 @@ public class LinkedListDeque<T> {
     public T get(int index) {
         StuffNode p = sentinel;
         int count = 0;
-        while(p.next.item != stuff && p.next != null) {
+        while (p.next.item != stuff && p.next != null) {
             p = p.next;
             if (count == index) {
                 return p.item;
