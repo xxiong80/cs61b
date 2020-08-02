@@ -10,9 +10,9 @@ public class TestOffByN {
     // Your tests go here.
     @Test
     public void testequalChars() {
-        assertTrue(offBy5.equalChars('a','f'));
-        assertTrue(offBy5.equalChars('f','a'));
-        assertFalse(offBy5.equalChars('f','h'));
+        assertTrue(offBy5.equalChars('a', 'f'));
+        assertTrue(offBy5.equalChars('f', 'a'));
+        assertFalse(offBy5.equalChars('f', 'h'));
     }
 }
 

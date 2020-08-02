@@ -17,7 +17,7 @@ public class Palindrome {
         if (d.size() <= 1) {
             return true;
         }
-        if(d.removeFirst() == d.removeLast()) {
+        if (d.removeFirst() == d.removeLast()) {
             return isPalindrome(d);
         }
         return false;
@@ -34,7 +34,7 @@ public class Palindrome {
         }
         char x = (char) d.removeFirst();
         char y = (char) d.removeLast();
-        if(cc.equalChars(x, y)) {
+        if (cc.equalChars(x, y)) {
             return isPalindrome(d, cc);
         }
         return false;
